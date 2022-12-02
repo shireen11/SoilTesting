@@ -46,15 +46,18 @@
                         <div class="card-header" style="background: rgb(45, 45, 45) ; -webkit-text-fill-color: aliceblue;">
                             <h3 class="card-title" style="font-size: 17px; padding: 5px; " >User Details</h3>
 
-                            <div class="card-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search" style="-webkit-text-fill-color: rgb(45, 45, 45)";>
-
-                                <div class="input-group-append" >
-                                <button type="submit" class="btn btn-default" ><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                            </div>
+                            <span class="card-tools">
+                                <span class="input-group-append" >
+                                    <button type="submit" class="btn btn-default"   ><i class="fas fa-search" style="-webkit-text-fill-color:rgb(1, 7, 13);"></i></button> &nbsp;
+                                    
+                                    <span class="input-group input-group-sm" style="width: 100px; padding-top: 4px ; padding-bottom: 4px;">
+                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search" style="-webkit-text-fill-color: rgb(45, 45, 45); height: 35px;" >
+                                    </span>
+                                        
+                                        
+                                </span>
+                                
+                            </span>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body table-responsive p-0">
@@ -92,7 +95,7 @@
                                     
                                     <div class="btn" style="background-color: #555555" >
                                     
-                                        <a href="{}" > <span class="glyphicon glyphicon-eye-open" style="color: #ffff;"></span></a> &nbsp;
+                                        <a href="{% url 'reportview' staff.admin.id %}" > <span class="glyphicon glyphicon-eye-open" style="color: #ffff;"></span></a> &nbsp;
                                     
                                         <a href="{% url 'edit_staff' staff.admin.id %}"     ><span class="glyphicon glyphicon-pencil" style="color: #ffff;"></span></a> &nbsp;
 

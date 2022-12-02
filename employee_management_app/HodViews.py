@@ -325,3 +325,10 @@ def add_test_view(request):
 
 #         writer.writerow([attendance.staff_id.id+1, attendance.attendance_date,attendance.intime,attendance.outtime])
 #     return response
+
+
+def reportview(request, staff_id):
+    staff = Staffs.objects.get(admin=staff_id)
+    return render(request, "hod_template/reportview.html")
+
+    
