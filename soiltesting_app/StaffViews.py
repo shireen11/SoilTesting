@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
-
+import pyrebase
 
 from soiltesting_app.models import CustomUser, Staffs, FeedBackStaffs
 
@@ -118,3 +118,56 @@ def staff_profile_update(request):
         except:
             messages.error(request, "Failed to Update Profile")
             return redirect('staff_profile')
+
+
+
+
+config={
+    "apiKey": "AIzaSyCeYvOFOO8MMeyVyqPrCYqCJS95tw0RhlA",
+    "authDomain": "test-8b038.firebaseapp.com",
+    "databaseURL": "https://test-8b038-default-rtdb.firebaseio.com/",
+    "projectId": "test-8b038",
+    "storageBucket": "test-8b038.appspot.com",
+    "messagingSenderId": "836482545907",
+    "appId": "1:836482545907:web:d229ce1c55606ae33b5f86",
+    
+    # "apiKey": "AIzaSyB3RdkNPXROHfST-C4qW5yytEFKlJ7j3cQ",
+    # "authDomain": "test1-8ae1e.firebaseapp.com",
+    # "databaseURL": "https://test1-8ae1e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    # "projectId": "test1-8ae1e",
+    # "storageBucket": "test1-8ae1e.appspot.com",
+    # "messagingSenderId": "824695415456",
+    # "appId": "1:824695415456:web:dded808355e6a12d431fc5",
+    
+}
+
+firebase= pyrebase.initialize_app(config)
+authe=firebase.auth()
+database=firebase.database()
+
+
+def reportviews(request):
+    soilmoisture=database.child('Sensor_Data').child('Soil_Moisture').get().val()
+    metaltouch=database.child('Sensor_Data').child('Metal_Touch').get().val()
+    # staff = Staffs.objects.get(admin=staff_id)
+
+    
+    return render(request, "staff_template/reportview.html",{
+        "soilmoisture":soilmoisture,
+        "metaltouch":metaltouch
+    })
+
+
+def conclusion_s(request):
+    soilmoisture=database.child('Sensor_Data').child('Soil_Moisture').get().val()
+
+    metaltouch=database.child('Sensor_Data').child('Metal_Touch').get().val()
+
+    soilm= (float)(100- ((float)(soilmoisture/1023)*100))
+
+    if soilm>10.00 & soilm<13.00:
+        s="Soil is Suitable for construction"
+        print(s)
+    else:
+        s="Not Suitable"
+    return render(request, "staff_template/conclusion.html", s)

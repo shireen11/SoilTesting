@@ -1,7 +1,7 @@
 {% extends 'hod_template/base_template.html' %}
 
 {% block page_title %}
-    Staff Feedback
+    
 {% endblock page_title %}
 
 {% block main_content %}
@@ -15,7 +15,7 @@
                 <div class="col-md-12" >
                     <!-- general form elements -->
                     <div class="card card-primary" >
-                        <div class="card-header" style="background-color: rgb(45, 45, 45)" ;">
+                        <div class="card-header" style="background-color: rgb(45, 45, 45)" ;>
                             <h3 class="card-title">User Feedback</h3>
                         </div>
                         <!-- /.card-header -->
@@ -24,9 +24,9 @@
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    
                                     <th>User ID</th>
-                                    <th>Uuser Name</th>
+                                    <th>User Name</th>
                                     <th>Message</th>
                                     <th>Sent On</th>
                                     <th>Reply</th>
@@ -36,14 +36,14 @@
                                 {% for feedback in feedbacks %}
                                 <tbody>
                                 <tr>
-                                    <td>{{ feedback.id }}</td>
+                                    <!-- <td>{{ feedback.id }}</td> -->
                                     <td>{{ feedback.staff_id.admin.id }}</td>
                                     <td>{{ feedback.staff_id.admin.first_name }} {{ feedback.staff_id.admin.last_name }}</td> 
                                     <td>{{ feedback.feedback }}</td>
                                     <td>{{ feedback.created_at }}</td>
                                     <td>
                                         {% if feedback.feedback_reply == "" %}
-                                            <button class="btn btn-success reply_open_modal" data-toggle="modal" data-target="#replyModal">Reply</button>
+                                            <button class="btn btn-success reply_open_modal" style="background-color:black ;" data-toggle="modal" data-target="#replyModal">Reply</button>
                                         {% else %}
                                             {{ feedback.feedback_reply }}
                                         {% endif %}
@@ -83,7 +83,7 @@
             </div>
             <div class="modal-footer">
                 {% comment %} <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> {% endcomment %}
-                <button type="button" class="btn btn-primary btn-block" id="reply_button">Reply</button>
+                <button type="button" class="btn btn-primary btn-block" style="background-color: black;" id="reply_button">Reply</button>
             </div>
             </div>
         </div>

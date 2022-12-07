@@ -28,6 +28,7 @@ urlpatterns = [
     # path('staff_leave_approve/<leave_id>/', HodViews.staff_leave_approve, name="staff_leave_approve"),
     # path('staff_leave_reject/<leave_id>/', HodViews.staff_leave_reject, name="staff_leave_reject"),
         path('reportview/<staff_id>/', HodViews.reportview, name="reportview"),
+        
 
     path('admin_profile/', HodViews.admin_profile, name="admin_profile"),
     path('admin_profile_update/', HodViews.admin_profile_update, name="admin_profile_update"),
@@ -47,8 +48,8 @@ urlpatterns = [
     path('add_test_view/', HodViews.add_test_view, name="add_test_view"),
     path('add_test/', HodViews.add_test, name="add_test"),
     path('add_test_save/', HodViews.add_test_save, name="add_test_save"),
-    
-
+    path('reportviews/', StaffViews.reportviews, name="reportviews"),
+    path('conclusion_s/', StaffViews.conclusion_s, name="conclusion_s"),
     # path('export_csv/', HodViews.export_csv, name="export_csv"),
 
 ]

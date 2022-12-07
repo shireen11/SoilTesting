@@ -28,7 +28,7 @@
 
             <li class="nav-item">
               {% url 'staff_home' as staff_home %}
-              <a href="{{ staff_home }}" class="nav-link {% if request.path == staff_home %} active {% endif %}">
+              <a href="{{ staff_home }}" class="nav-link {% if request.path == staff_home %} active {% endif %}" style="background-color: transparent;">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Home
@@ -80,15 +80,29 @@
                 </p>
               </a>
             </li> -->
-
             
+            <style>
+              
+            </style>
+
+
+            <li class="nav-item">
+              
+              <a href="{% url 'reportviews'  %}" class="nav-link {% if request.path == reportviews %} active {% endif %}" >
+                <i class="nav-icon fas fa-comments"></i>
+                <p>
+                  Report
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+            </li>
 
             <li class="nav-item">
               {% url 'staff_feedback' as staff_feedback %}
-              <a href="{{ staff_feedback }}" class="nav-link {% if request.path == staff_feedback %} active {% endif %}">
+              <a href="{{ staff_feedback }}" class="nav-link {% if request.path == staff_feedback %} active {% endif %}" style="background-color: transparent;">
                 <i class="nav-icon fas fa-comments"></i>
                 <p>
-                  Feedback
+                  Message
                   {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
                 </p>
               </a>

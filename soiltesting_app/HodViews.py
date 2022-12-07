@@ -14,6 +14,7 @@ from soiltesting_app.models import CustomUser,  Staffs,  FeedBackStaffs, TestRep
 
 from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget
 from django import forms
+import pyrebase
 
 def admin_home(request):
    
@@ -327,8 +328,32 @@ def add_test_view(request):
 #     return response
 
 
+
+
+config={
+    "apiKey": "AIzaSyCeYvOFOO8MMeyVyqPrCYqCJS95tw0RhlA",
+    "authDomain": "test-8b038.firebaseapp.com",
+    "databaseURL": "https://test-8b038-default-rtdb.firebaseio.com/",
+    "projectId": "test-8b038",
+    "storageBucket": "test-8b038.appspot.com",
+    "messagingSenderId": "836482545907",
+    "appId": "1:836482545907:web:d229ce1c55606ae33b5f86",    
+}
+
+firebase= pyrebase.initialize_app(config)
+authe=firebase.auth()
+database=firebase.database()
+
+
 def reportview(request, staff_id):
+    soilmoisture=database.child('Sensor_Data').child('Soil_Moisture').get().val()
+    ph=database.child('Sensor_Data').child('pH').get().val()
     staff = Staffs.objects.get(admin=staff_id)
-    return render(request, "hod_template/reportview.html")
+
+    
+    return render(request, "hod_template/reportview.html",{
+        "soilmoisture":soilmoisture,
+        "ph":ph
+    })
 
     

@@ -1,7 +1,7 @@
 {% extends 'hod_template/base_template.html' %}
 
 {% block page_title %}
-    Edit Staff | Username: {{ staff.admin.username }} | #ID : {{ staff.admin.id }}
+    
 {% endblock page_title %}
 
 {% block main_content %}
@@ -9,14 +9,14 @@
 {% load static %}
 
 <section class="content">
-        <div class="container-fluid">
+        <div class="container-fluid "  style="font-family:Georgia, 'Times New Roman', Times, serif;">
 
-            <div class="row">
-                <div class="col-md-12">
+            <div class="row ">
+                <div class="col-md-12 ">
                     <!-- general form elements -->
-                    <div class="card card-primary">
-                    <div class="card-header">
-                        <h3 class="card-title">Edit Staff</h3>
+                    <div class="card card-primary ">
+                    <div class="card-header bg-dark">
+                        <h3 class="card-title">Edit User</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -89,7 +89,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Update Staff</button>
+                        <button type="submit" class="btn btn-outline-dark">Update User</button>
                         </div>
                     </form>
                     </div>

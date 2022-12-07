@@ -8,6 +8,9 @@
         <!-- <span class="brand-text font-weight-light">Fresh Express</span> -->
       </a>
 
+
+
+      
       <!-- Sidebar -->
       <div class="sidebar " >
         <!-- Sidebar user panel (optional) -->
@@ -28,18 +31,22 @@
 
             <li class="nav-item">
               {% url 'admin_home' as admin_home %}
-              <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}">
+              <a href="{{ admin_home }}" class="nav-link {% if request.path == admin_home %} active {% endif %}" style="background-color:transparent ;">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
                 </p>
               </a>
             </li>
-
+            <style>
+              .active{
+                background-color: transparent;
+              }
+            </style>
             <li class="nav-item">
               {% url 'manage_staff' as manage_staff %}
               {% url 'edit_staff' staff_id=id as edit_staff %}
-              <a href="{{ manage_staff }}" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">
+              <a href="{{ manage_staff }}" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}"style="background-color:transparent ;">
                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                 <p>
                   Manage Users
@@ -177,10 +184,10 @@
 
             <li class="nav-item">
               {% url 'staff_feedback_message' as staff_feedback_message %}
-              <a href="{{ staff_feedback_message }}" class="nav-link {% if request.path == staff_feedback_message %} active {% endif %}">
+              <a href="{{ staff_feedback_message }} " class="nav-link {% if request.path == staff_feedback_message %} active {% endif %}" style="background-color:transparent ;">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  User Feedback
+                  User Mesaage
                 </p>
               </a>
             </li>

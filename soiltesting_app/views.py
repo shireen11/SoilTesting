@@ -5,6 +5,24 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 
 from soiltesting_app.EmailBackEnd import EmailBackEnd
+import pyrebase
+
+
+
+config={
+    "apiKey": "AIzaSyCeYvOFOO8MMeyVyqPrCYqCJS95tw0RhlA",
+    "authDomain": "test-8b038.firebaseapp.com",
+    "databaseURL": "https://test-8b038-default-rtdb.firebaseio.com/",
+    "projectId": "test-8b038",
+    "storageBucket": "test-8b038.appspot.com",
+    "messagingSenderId": "836482545907",
+    "appId": "1:836482545907:web:d229ce1c55606ae33b5f86",    
+}
+
+firebase= pyrebase.initialize_app(config)
+authe=firebase.auth()
+database=firebase.database()
+
 
 
 def home(request):
@@ -54,3 +72,5 @@ def get_user_details(request):
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect('/')
+
+
